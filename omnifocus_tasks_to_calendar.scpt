@@ -65,19 +65,12 @@ on run argv
 	-- Let the user know that the script has started
 	display notification "OmniFocus is now syncing to Calendar" with title "Syncing..."
 
-	-- Check if the current time is 4 am
-	set currentHour to hours of (current date)
-	-- if currentHour is not 4 then
-		-- do nothing --
-	-- else
-		-- Restart the Calendar app minimized
-		tell application "Calendar" to quit
-		delay 1
-		tell application "Calendar"
-			activate
-			set miniaturized of every window to true
-		end tell
-	-- end if
+	-- Restart the Calendar app minimized
+	tell application "Calendar" to quit
+	delay 3
+	tell application "Calendar"
+		run  -- this starts the Calendar app but doesn't load its window
+	end tell
 
 	-- ********************************* --
 	-- CALL THE HANDLERS WITH PARAMETERS --
