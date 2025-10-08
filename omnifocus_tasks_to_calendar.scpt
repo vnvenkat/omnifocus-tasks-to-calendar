@@ -62,15 +62,15 @@ on run argv
 	-- Start a stopwatch
 	set stopwatchStart to current date
 
-	-- Let the user know that the script has started
-	display notification "OmniFocus is now syncing to Calendar" with title "Syncing..."
-
 	-- Restart the Calendar app minimized
 	tell application "Calendar" to quit
 	delay 3
 	tell application "Calendar"
 		run  -- this starts the Calendar app but doesn't load its window
 	end tell
+
+	-- Let the user know that the script has started
+	display notification "OmniFocus is now syncing to Calendar" with title "Syncing..."
 
 	-- ********************************* --
 	-- CALL THE HANDLERS WITH PARAMETERS --
