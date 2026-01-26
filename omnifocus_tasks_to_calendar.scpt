@@ -135,8 +135,8 @@ on processOmniFocusTasks(tags_considered,include_or_exclude,calendar_name)
 			set task_elements to flattened tasks whose ¬
 				(completed is false) and ¬
 				(dropped is false) and ¬
-				(due date ≠ missing value) and ¬
-				(due date is greater than or equal to theStartDate) and ¬
+				((due date ≠ missing value) or (planned date ≠ missing value)) and ¬
+				((due date is greater than or equal to theStartDate) or (planned date is greater than or equal to theStartDate)) and ¬
 				(due date is less than or equal to theEndDate)
 
 			repeat with item_ref in task_elements
